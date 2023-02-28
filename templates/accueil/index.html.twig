@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}} - Accueil{% endblock %}
+
+{% block body %}
+<img src="{{asset('images/accueil_1920.jpg')}}" class="img-fluid" alt="">
+<div class="position-absolute top-50 start-50 translate-middle">
+    
+    <img class="avatar mx-auto mb-3" style="height: 100px;   display: block;" alt="avatar du contact" src="{{asset('images/coach_400_400.jpg')}}">
+    
+    <h5 class="mb-4 text-center">Bonjour, et bienvenue<br/> dans notre club de rencontres !</h5>
+    
+    <a href="#" class="btn btn-success btn-lg d-block" role="button">Je cherche un Club Member</a>
+</div>
+{% endblock %}
+
