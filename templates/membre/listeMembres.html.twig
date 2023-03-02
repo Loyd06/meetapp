@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}} - Liste des membres{% endblock %}
+
+{% block body %}
+    {{dump(membres)}}
+    
+{% endblock %}
