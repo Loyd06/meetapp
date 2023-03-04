@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Membre;
 use App\Repository\MembreRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,6 +17,15 @@ class MembreController extends AbstractController
         //dd($membres);
         return $this->render('membre/listeMembres.html.twig', [
             'membres' => $membres 
+        ]);
+    }
+
+    #[Route('/membre/{id}', name: 'app_membre', methods: ["GET"])]
+    public function ficheMembre(Membre $membre): Response
+    {
+        //dd($membre);
+        return $this->render('membre/ficheMembre.html.twig', [
+            'membre' => $membre,
         ]);
     }
 }

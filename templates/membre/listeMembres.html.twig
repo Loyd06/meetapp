@@ -10,7 +10,7 @@
             <div class="card mb-3">
                 <h4 class="card-header">{{membre.nom}} {{membre.prenom}}</h4>
                 
-                <img class="avatar mx-auto my-3" style="height: 200px;   display: block;" alt="avatar du contact" src="{{membre.avatar}}">
+                <img class="avatar mx-auto my-3" style="height: 200px;   display: block;" alt="avatar du membre" src="{{membre.avatar}}">
                 
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
@@ -28,7 +28,7 @@
                 </ul>
 
                 <div class="card-body d-grid gap-2">
-                    <a href="#" class="btn btn-primary" role="button">Détails</a>
+                    <a href="{{path('app_membre', {'id':membre.id})}}" " class="btn btn-primary" role="button">Détails</a>
                 </div>
                 
             </div>
