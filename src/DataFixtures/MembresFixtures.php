@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use Faker\Factory;
 use App\Entity\Membre;
+use App\Entity\Categorie;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 
@@ -12,6 +13,17 @@ class MembresFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $faker = Factory::create("fr_FR");
+
+        $libelle = ["Professionnel","Sport","Privé"];
+        $img = [7,390,64];
+        for ($i=0 ; $i<3 ; $i++){
+            $categorie = new Categorie();
+            $categorie  ->setLibelle($libelle[$i])
+                        ->setDescription($faker->sentence(100))
+                        ->setImage("https://picsum.photos/id/".$img[$i]."/400/400");
+            $manager->persist($categorie);
+        }
+
         $genres = ["male", "female"];
         
         for ($i=0 ; $i<100 ; $i++) {
