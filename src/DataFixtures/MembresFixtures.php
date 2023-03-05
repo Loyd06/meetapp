@@ -20,7 +20,7 @@ class MembresFixtures extends Fixture
             $categorie = new Categorie();
             $categorie  ->setLibelle($libelle[$i])
                         ->setDescription($faker->sentence(100))
-                        ->setImage("https://picsum.photos/id/".$img[$i]."/400/400");
+                        ->setImage("images/".$img[$i]."-400x400.jpg");
             $manager->persist($categorie);
         }
 

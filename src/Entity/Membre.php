@@ -41,6 +41,9 @@ class Membre
     #[ORM\Column(type: Types::TEXT)]
     private ?string $aproposde = null;
 
+    #[ORM\ManyToOne(inversedBy: 'membres')]
+    private ?Categorie $categorie = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -150,6 +153,18 @@ class Membre
     public function setAproposde(string $aproposde): self
     {
         $this->aproposde = $aproposde;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?Categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Categorie $categorie): self
+    {
+        $this->categorie = $categorie;
 
         return $this;
     }
