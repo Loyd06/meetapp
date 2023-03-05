@@ -28,4 +28,17 @@ class MembreController extends AbstractController
             'membre' => $membre,
         ]);
     }
+
+    #[Route('/membres/sexe/{sexe}', name: 'app_membresBySexe', methods: ["GET"])]
+    public function membresBySexe($sexe, MembreRepository $repo): Response
+    {
+        $membres = $repo->findBy(
+            ['sexe' => $sexe],
+            ['nom' => 'ASC']
+        );
+        return $this->render('membre/listeMembres.html.twig', [
+            'membres' => $membres,
+        ]);
+    }
+
 }

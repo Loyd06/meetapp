@@ -18,8 +18,42 @@
                 </div>
             </div> 
         </div>
-        <div>
+        <div class="mb-3">
             <a href="{{path('app_categories')}}" class="btn btn-primary" role="button">Retour à la liste</a>
         </div>
+        <div class="row">
+            {% for membre in categorie.membres %}
+            <div class="col-sm-12 col-md-12 col-lg-4 col-xl-3">
+                <div class="card mb-3 {% if membre.sexe == 0 %}border-info {% else %}border-warning{% endif %}">
+                    <h4 class="card-header">{{membre.nom}} {{membre.prenom}}</h4>
+                    
+                    <img class="avatar mx-auto my-3" style="height: 200px;   display: block;" alt="avatar du contact" src="{{membre.avatar}}">
+                    
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            {% if membre.sexe==0 %}
+                                <span class="badge text-bg-info">H</span>
+                            {% else %}
+                                <span class="badge text-bg-warning">F</span>
+                            {% endif %}
+                        </li>
+                        <li class="list-group-item">{{membre.rue}}</li>
+                        <li class="list-group-item">{{membre.cp}}</li>
+                        <li class="list-group-item">{{membre.ville}}</li>
+                        <li class="list-group-item">{{membre.mail}}</li>
+                        <li class="list-group-item">
+                            <a href="{{path('app_categorie', {'id':membre.categorie.id})}}">{{membre.categorie.libelle}}</a>
+                        </li>
+                    </ul>
+    
+                    <div class="card-body d-grid gap-2">
+                        <a href="{{path('app_membre', {'id':membre.id})}}" class="btn btn-primary" role="button">Détails</a>
+                    </div>
+                    
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
     </div>    
 {% endblock %}

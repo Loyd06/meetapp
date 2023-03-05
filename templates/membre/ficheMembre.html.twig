@@ -24,6 +24,10 @@
                         <li class="list-group-item">{{membre.cp}}</li>
                         <li class="list-group-item">{{membre.ville}}</li>
                         <li class="list-group-item">{{membre.mail}}</li> 
+                        <li class="list-group-item">
+                            <a href="{{path('app_categorie', {'id':membre.categorie.id})}}">{{membre.categorie.libelle}}</a>
+                        </li>
+
                     </ul>
                 </div>
             </div> 
