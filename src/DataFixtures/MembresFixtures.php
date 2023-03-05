@@ -16,11 +16,14 @@ class MembresFixtures extends Fixture
 
         $libelle = ["Professionnel","Sport","Privé"];
         $img = [7,390,64];
+        $categories = [];
+
         for ($i=0 ; $i<3 ; $i++){
             $categorie = new Categorie();
             $categorie  ->setLibelle($libelle[$i])
                         ->setDescription($faker->sentence(100))
                         ->setImage("images/".$img[$i]."-400x400.jpg");
+            $categories[] = $categorie;
             $manager->persist($categorie);
         }
 
@@ -42,6 +45,7 @@ class MembresFixtures extends Fixture
                         ->setVille($faker->city())
                         ->setMail($faker->email())
                         ->setSexe($sexe)
+                        ->setCategorie($categories[mt_rand(0,count($categories)-1)])
                         ->setAproposde($faker->sentence(100))
                         ->setAvatar("https://randomuser.me/api/portraits/".$type."/".$i.".jpg");
             $manager->persist($membre);
